@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Max's Projects Invoice</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="app-shell">
+
+    <!-- =========================
+         INVOICE FORM
+         ========================= -->
+
+    <section class="form-panel no-print">
+
+      <h1>Create Invoice</h1>
+
+      <label>
+        Customer name
+        <input
+          id="customerName"
+          type="text"
+          placeholder="Customer name"
+        >
+      </label>
+
+      <label>
+        Description of work
+        <textarea
+          id="description"
+          rows="4"
+          placeholder="Example: Installed ceiling fan"
+        ></textarea>
+      </label>
+
+      <label>
+        Total price (tax included)
+        <input
+          id="price"
+          type="number"
+          min="0"
+          step="0.01"
+          placeholder="0.00"
+        >
+      </label>
+
+      <div class="button-row">
+
+        <button id="updateBtn" type="button">
+          Update Invoice
+        </button>
+
+        <button id="printBtn" type="button">
+          Save as PDF
+        </button>
+
+      </div>
+
+      <button
+        id="newBtn"
+        class="secondary"
+        type="button"
+      >
+        Start New Invoice
+      </button>
+
+      <p class="hint">
+        The invoice number and date are created automatically.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         ACTUAL INVOICE
+         ========================= -->
+
+    <section id="invoice" class="invoice">
+
+
+      <!-- HEADER -->
+
+      <header class="invoice-header">
+
+        <div class="left-header">
+
+          <img
+            src="handyman-logo.png"
+            alt="Handyman logo"
+            class="logo"
+          >
+
+          <div class="business-info">
+            <h2>Luis Bazan</h2>
+            <p>786-368-5079</p>
+            <p>maxitoebh@yahoo.com</p>
+          </div>
+
+        </div>
+
+
+        <div class="company-info">
+          <h2>The Max's Projects LLC</h2>
+          <p>2223 Madison ST</p>
+          <p>Hollywood, FL 33020</p>
+        </div>
+
+      </header>
+
+
+      <!-- INVOICE NUMBER / DATE -->
+
+      <div class="invoice-title-row">
+
+        <h1>INVOICE</h1>
+
+        <div class="invoice-meta">
+
+          <p>
+            <strong>Invoice #:</strong>
+            <span id="invoiceNumber"></span>
+          </p>
+
+          <p>
+            <strong>Date:</strong>
+            <span id="invoiceDate"></span>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- CUSTOMER -->
+
+      <div class="customer-block">
+
+        <p class="label">
+          Bill To
+        </p>
+
+        <p id="invoiceCustomer">
+          Customer name
+        </p>
+
+      </div>
+
+
+      <!-- WORK -->
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th class="amount-col">Amount</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+
+            <td id="invoiceDescription">
+              Work description
+            </td>
+
+            <td
+              id="invoicePrice"
+              class="amount-col"
+            >
+              $0.00
+            </td>
+
+          </tr>
+        </tbody>
+
+      </table>
+
+
+      <!-- TOTAL -->
+
+      <div class="total-box">
+
+        <span>
+          Total (tax included)
+        </span>
+
+        <strong id="invoiceTotal">
+          $0.00
+        </strong>
+
+      </div>
+
+
+      <footer>
+        Thank you for your business.
+      </footer>
+
+
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
